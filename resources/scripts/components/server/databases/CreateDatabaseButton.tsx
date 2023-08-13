@@ -18,14 +18,14 @@ interface Values {
 
 const schema = object().shape({
     databaseName: string()
-        .required('A database name must be provided.')
-        .min(3, 'Database name must be at least 3 characters.')
-        .max(48, 'Database name must not exceed 48 characters.')
+        .required('您必須提供資料庫名稱。')
+        .min(3, '資料庫名稱至少需要 3 個字符。')
+        .max(48, '資料庫名稱不得超過 48 個字符。')
         .matches(
             /^[\w\-.]{3,48}$/,
-            'Database name should only contain alphanumeric characters, underscores, dashes, and/or periods.'
+            '資料庫名稱只能包括英文、數字字元或斜線 /、下底線 _、連字號 -、點 .。'
         ),
-    connectionsFrom: string().matches(/^[\w\-/.%:]+$/, 'A valid host address must be provided.'),
+    connectionsFrom: string().matches(/^[\w\-/.%:]+$/, '必須提供一個有效的連線位置。'),
 });
 
 export default () => {
@@ -69,23 +69,23 @@ export default () => {
                         }}
                     >
                         <FlashMessageRender byKey={'database:create'} css={tw`mb-6`} />
-                        <h2 css={tw`text-2xl mb-6`}>Create new database</h2>
+                        <h2 css={tw`text-2xl mb-6`}>創建新的資料庫</h2>
                         <Form css={tw`m-0`}>
                             <Field
                                 type={'string'}
                                 id={'database_name'}
                                 name={'databaseName'}
-                                label={'Database Name'}
-                                description={'A descriptive name for your database instance.'}
+                                label={'資料庫名稱'}
+                                description={'關於資料庫的一些備註。'}
                             />
                             <div css={tw`mt-6`}>
                                 <Field
                                     type={'string'}
                                     id={'connections_from'}
                                     name={'connectionsFrom'}
-                                    label={'Connections From'}
+                                    label={'連線白名單'}
                                     description={
-                                        'Where connections should be allowed from. Leave blank to allow connections from anywhere.'
+                                        '允許資料庫能從哪裡連線，空白代表不限制。'
                                     }
                                 />
                             </div>
@@ -96,10 +96,10 @@ export default () => {
                                     css={tw`w-full sm:w-auto sm:mr-2`}
                                     onClick={() => setVisible(false)}
                                 >
-                                    Cancel
+                                    取消
                                 </Button>
                                 <Button css={tw`w-full mt-4 sm:w-auto sm:mt-0`} type={'submit'}>
-                                    Create Database
+                                    創建資料庫
                                 </Button>
                             </div>
                         </Form>

@@ -75,7 +75,7 @@ const NewDirectoryDialog = asDialog({
                         <p css={tw`mt-2 text-sm md:text-base break-all`}>
                             <span css={tw`text-neutral-200`}>This directory will be created as&nbsp;</span>
                             <Code>
-                                /home/container/
+                                /檔案管理/伺服器根目錄/
                                 <span css={tw`text-cyan-200`}>
                                     {join(directory, values.directoryName).replace(/^(\.\.\/|\/)+/, '')}
                                 </span>
@@ -84,10 +84,10 @@ const NewDirectoryDialog = asDialog({
                     </Form>
                     <Dialog.Footer>
                         <Button.Text className={'w-full sm:w-auto'} onClick={close}>
-                            Cancel
+                            取消
                         </Button.Text>
                         <Button className={'w-full sm:w-auto'} onClick={submitForm}>
-                            Create
+                            創建
                         </Button>
                     </Dialog.Footer>
                 </>

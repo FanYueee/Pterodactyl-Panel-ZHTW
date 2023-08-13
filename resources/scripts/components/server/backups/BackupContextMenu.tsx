@@ -125,7 +125,7 @@ export default ({ backup }: Props) => {
                 title={`Unlock "${backup.name}"`}
                 onConfirmed={onLockToggle}
             >
-                This backup will no longer be protected from automated or accidental deletions.
+                這個備份將不再受到保護，因此排成管理或是手動都能直接刪除此備份。
             </Dialog.Confirm>
             <Dialog.Confirm
                 open={modal === 'restore'}
@@ -135,8 +135,7 @@ export default ({ backup }: Props) => {
                 onConfirmed={() => doRestorationAction()}
             >
                 <p>
-                    Your server will be stopped. You will not be able to control the power state, access the file
-                    manager, or create additional backups until completed.
+                    您的伺服器將被暫時停止且無法控制，直到備份還原完畢。
                 </p>
                 <p css={tw`mt-4 -mb-2 bg-gray-700 p-3 rounded`}>
                     <label htmlFor={'restore_truncate'} css={tw`text-base flex items-center cursor-pointer`}>
@@ -148,7 +147,7 @@ export default ({ backup }: Props) => {
                             checked={truncate}
                             onChange={() => setTruncate((s) => !s)}
                         />
-                        Delete all files before restoring backup.
+                        在還原前刪除所有檔案。
                     </label>
                 </p>
             </Dialog.Confirm>
@@ -159,7 +158,7 @@ export default ({ backup }: Props) => {
                 onClose={() => setModal('')}
                 onConfirmed={doDeletion}
             >
-                This is a permanent operation. The backup cannot be recovered once deleted.
+                刪除備份後就無法再還原，這是不可逆的操作。
             </Dialog.Confirm>
             <SpinnerOverlay visible={loading} fixed />
             {backup.isSuccessful ? (
@@ -177,13 +176,13 @@ export default ({ backup }: Props) => {
                         <Can action={'backup.download'}>
                             <DropdownButtonRow onClick={doDownload}>
                                 <FontAwesomeIcon fixedWidth icon={faCloudDownloadAlt} css={tw`text-xs`} />
-                                <span css={tw`ml-2`}>Download</span>
+                                <span css={tw`ml-2`}>下載</span>
                             </DropdownButtonRow>
                         </Can>
                         <Can action={'backup.restore'}>
                             <DropdownButtonRow onClick={() => setModal('restore')}>
                                 <FontAwesomeIcon fixedWidth icon={faBoxOpen} css={tw`text-xs`} />
-                                <span css={tw`ml-2`}>Restore</span>
+                                <span css={tw`ml-2`}>還原</span>
                             </DropdownButtonRow>
                         </Can>
                         <Can action={'backup.delete'}>
@@ -194,12 +193,12 @@ export default ({ backup }: Props) => {
                                         icon={backup.isLocked ? faUnlock : faLock}
                                         css={tw`text-xs mr-2`}
                                     />
-                                    {backup.isLocked ? 'Unlock' : 'Lock'}
+                                    {backup.isLocked ? '解鎖' : '鎖定'}
                                 </DropdownButtonRow>
                                 {!backup.isLocked && (
                                     <DropdownButtonRow danger onClick={() => setModal('delete')}>
                                         <FontAwesomeIcon fixedWidth icon={faTrashAlt} css={tw`text-xs`} />
-                                        <span css={tw`ml-2`}>Delete</span>
+                                        <span css={tw`ml-2`}>刪除</span>
                                     </DropdownButtonRow>
                                 )}
                             </>

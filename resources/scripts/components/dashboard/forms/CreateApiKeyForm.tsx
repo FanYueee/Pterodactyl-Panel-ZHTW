@@ -59,24 +59,24 @@ export default ({ onKeyCreated }: { onKeyCreated: (key: ApiKey) => void }) => {
                     <Form>
                         <SpinnerOverlay visible={isSubmitting} />
                         <FormikFieldWrapper
-                            label={'Description'}
+                            label={'備註'}
                             name={'description'}
-                            description={'A description of this API key.'}
+                            description={'這個 API 金鑰的備註。'}
                             css={tw`mb-6`}
                         >
                             <Field name={'description'} as={Input} />
                         </FormikFieldWrapper>
                         <FormikFieldWrapper
-                            label={'Allowed IPs'}
+                            label={'IP 白名單'}
                             name={'allowedIps'}
                             description={
-                                'Leave blank to allow any IP address to use this API key, otherwise provide each IP address on a new line.'
+                                '留空代表允許所有 IP，如果要限制請每一行打一組 IP。'
                             }
                         >
                             <Field name={'allowedIps'} as={CustomTextarea} />
                         </FormikFieldWrapper>
                         <div css={tw`flex justify-end mt-6`}>
-                            <Button>Create</Button>
+                            <Button>創建</Button>
                         </div>
                     </Form>
                 )}

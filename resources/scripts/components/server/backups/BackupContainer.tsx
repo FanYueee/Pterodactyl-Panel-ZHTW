@@ -43,8 +43,8 @@ const BackupContainer = () => {
                         !backupLimit ? null : (
                             <p css={tw`text-center text-sm text-neutral-300`}>
                                 {page > 1
-                                    ? "Looks like we've run out of backups to show you, try going back a page."
-                                    : 'It looks like there are no backups currently stored for this server.'}
+                                    ? "看起來我們已經沒有更多的備份可以顯示給您，請嘗試返回上一頁。"
+                                    : '看起來您目前沒有任何備份。'}
                             </p>
                         )
                     ) : (
@@ -56,14 +56,14 @@ const BackupContainer = () => {
             </Pagination>
             {backupLimit === 0 && (
                 <p css={tw`text-center text-sm text-neutral-300`}>
-                    Backups cannot be created for this server because the backup limit is set to 0.
+                    您無法創建備份，因為您尚未購買備份空間，請至商店內購買。
                 </p>
             )}
             <Can action={'backup.create'}>
                 <div css={tw`mt-6 sm:flex items-center justify-end`}>
                     {backupLimit > 0 && backups.backupCount > 0 && (
                         <p css={tw`text-sm text-neutral-300 mb-4 sm:mr-6 sm:mb-0`}>
-                            {backups.backupCount} of {backupLimit} backups have been created for this server.
+                            您已經創建 {backups.backupCount} 個備份 / 備份額度上限 {backupLimit} 個備份
                         </p>
                     )}
                     {backupLimit > 0 && backupLimit > backups.backupCount && (

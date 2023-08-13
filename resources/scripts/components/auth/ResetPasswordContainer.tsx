@@ -52,16 +52,16 @@ export default ({ match, location }: RouteComponentProps<{ token: string }>) => 
             }}
             validationSchema={object().shape({
                 password: string()
-                    .required('A new password is required.')
-                    .min(8, 'Your new password should be at least 8 characters in length.'),
+                    .required('需要新密碼。')
+                    .min(8, '新的密碼至少需要 8 位字符。'),
                 passwordConfirmation: string()
-                    .required('Your new password does not match.')
+                    .required('您的新密碼並不匹配。')
                     // @ts-expect-error this is valid
-                    .oneOf([ref('password'), null], 'Your new password does not match.'),
+                    .oneOf([ref('password'), null], '您的新密碼並不匹配。'),
             })}
         >
             {({ isSubmitting }) => (
-                <LoginFormContainer title={'Reset Password'} css={tw`w-full flex`}>
+                <LoginFormContainer title={'重設密碼'} css={tw`w-full flex`}>
                     <div>
                         <label>Email</label>
                         <Input value={email} isLight disabled />
@@ -69,18 +69,18 @@ export default ({ match, location }: RouteComponentProps<{ token: string }>) => 
                     <div css={tw`mt-6`}>
                         <Field
                             light
-                            label={'New Password'}
+                            label={'新密碼'}
                             name={'password'}
                             type={'password'}
-                            description={'Passwords must be at least 8 characters in length.'}
+                            description={'密碼至少需要 8 位字符。'}
                         />
                     </div>
                     <div css={tw`mt-6`}>
-                        <Field light label={'Confirm New Password'} name={'passwordConfirmation'} type={'password'} />
+                        <Field light label={'確認新密碼'} name={'passwordConfirmation'} type={'password'} />
                     </div>
                     <div css={tw`mt-6`}>
                         <Button size={'xlarge'} type={'submit'} disabled={isSubmitting} isLoading={isSubmitting}>
-                            Reset Password
+                            重設密碼
                         </Button>
                     </div>
                     <div css={tw`mt-6 text-center`}>
@@ -88,7 +88,7 @@ export default ({ match, location }: RouteComponentProps<{ token: string }>) => 
                             to={'/auth/login'}
                             css={tw`text-xs text-neutral-500 tracking-wide no-underline uppercase hover:text-neutral-600`}
                         >
-                            Return to Login
+                            返回至登入介面
                         </Link>
                     </div>
                 </LoginFormContainer>

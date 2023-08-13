@@ -37,7 +37,7 @@ export default () => {
     }, []);
 
     return (
-        <ServerContentBlock title={'Databases'}>
+        <ServerContentBlock title={'資料庫'}>
             <FlashMessageRender byKey={'databases'} css={tw`mb-4`} />
             {!databases.length && loading ? (
                 <Spinner size={'large'} centered />
@@ -63,7 +63,7 @@ export default () => {
                             <div css={tw`mt-6 flex items-center justify-end`}>
                                 {databaseLimit > 0 && databases.length > 0 && (
                                     <p css={tw`text-sm text-neutral-300 mb-4 sm:mr-6 sm:mb-0`}>
-                                        {databases.length} of {databaseLimit} databases have been allocated to this
+                                        {databases.length} / {databaseLimit} 個伺服器已經被創建
                                         server.
                                     </p>
                                 )}

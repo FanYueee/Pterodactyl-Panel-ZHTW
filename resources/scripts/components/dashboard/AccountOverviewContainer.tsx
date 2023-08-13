@@ -30,15 +30,15 @@ export default () => {
     const { state } = useLocation<undefined | { twoFactorRedirect?: boolean }>();
 
     return (
-        <PageContentBlock title={'Account Overview'}>
+        <PageContentBlock title={'帳戶資訊'}>
             {state?.twoFactorRedirect && (
-                <MessageBox title={'2-Factor Required'} type={'error'}>
+                <MessageBox title={'SSH 金鑰名稱'} type={'error'}>
                     Your account must have two-factor authentication enabled in order to continue.
                 </MessageBox>
             )}
 
             <Container css={[tw`lg:grid lg:grid-cols-3 mb-10`, state?.twoFactorRedirect ? tw`mt-4` : tw`mt-10`]}>
-                <ContentBox title={'Update Password'} showFlashes={'account:password'}>
+                <ContentBox title={'更新密碼'} showFlashes={'account:password'}>
                     <UpdatePasswordForm />
                 </ContentBox>
                 <ContentBox css={tw`mt-8 sm:mt-0 sm:ml-8`} title={'Update Email Address'} showFlashes={'account:email'}>

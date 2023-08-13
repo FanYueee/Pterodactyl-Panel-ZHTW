@@ -69,7 +69,7 @@ const RenameFileModal = ({ files, useMoveTerminology, ...props }: OwnProps) => {
                                     label={'File Name'}
                                     description={
                                         useMoveTerminology
-                                            ? 'Enter the new name and directory of this file or folder, relative to the current directory.'
+                                            ? '請輸入此檔案或資料夾的新名稱和目錄，相對於目前的目錄。'
                                             : undefined
                                     }
                                     autoFocus
@@ -82,7 +82,7 @@ const RenameFileModal = ({ files, useMoveTerminology, ...props }: OwnProps) => {
                         {useMoveTerminology && (
                             <p css={tw`text-xs mt-2 text-neutral-400`}>
                                 <strong css={tw`text-neutral-200`}>New location:</strong>
-                                &nbsp;/home/container/{join(directory, values.name).replace(/^(\.\.\/|\/)+/, '')}
+                                &nbsp;/檔案管理/伺服器根目錄/{join(directory, values.name).replace(/^(\.\.\/|\/)+/, '')}
                             </p>
                         )}
                     </Form>

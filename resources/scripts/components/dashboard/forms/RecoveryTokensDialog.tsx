@@ -20,9 +20,9 @@ export default ({ tokens, open, onClose }: RecoveryTokenDialogProps) => {
         <Dialog
             open={open}
             onClose={onClose}
-            title={'Two-Step Authentication Enabled'}
+            title={'啟用雙重驗證'}
             description={
-                'Store the codes below somewhere safe. If you lose access to your phone you can use these backup codes to sign in.'
+                '請將下面的代碼儲存到安全的地方，如果您無法訪問手機的雙重驗證軟體，可以使用這些備用代碼代替。'
             }
             hideCloseIcon
             preventExternalClose
@@ -41,10 +41,10 @@ export default ({ tokens, open, onClose }: RecoveryTokenDialogProps) => {
                 </pre>
             </CopyOnClick>
             <Alert type={'danger'} className={'mt-3'}>
-                These codes will not be shown again.
+                這些備用代碼將不會再次顯示。
             </Alert>
             <Dialog.Footer>
-                <Button.Text onClick={onClose}>Done</Button.Text>
+                <Button.Text onClick={onClose}>完成</Button.Text>
             </Dialog.Footer>
         </Dialog>
     );

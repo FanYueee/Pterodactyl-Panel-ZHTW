@@ -42,17 +42,17 @@ export default () => {
     };
 
     return (
-        <PageContentBlock title={'Account API'}>
+        <PageContentBlock title={'SSH 金鑰'}>
             <FlashMessageRender byKey={'account'} />
             <div css={tw`md:flex flex-nowrap my-10`}>
-                <ContentBox title={'Create API Key'} css={tw`flex-none w-full md:w-1/2`}>
+                <ContentBox title={'增加 SSH 金鑰'} css={tw`flex-none w-full md:w-1/2`}>
                     <CreateApiKeyForm onKeyCreated={(key) => setKeys((s) => [...s!, key])} />
                 </ContentBox>
-                <ContentBox title={'API Keys'} css={tw`flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8`}>
+                <ContentBox title={'SSH 金鑰'} css={tw`flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8`}>
                     <SpinnerOverlay visible={loading} />
                     <Dialog.Confirm
-                        title={'Delete API Key'}
-                        confirm={'Delete Key'}
+                        title={'刪除 API 金鑰'}
+                        confirm={'刪除金鑰'}
                         open={!!deleteIdentifier}
                         onClose={() => setDeleteIdentifier('')}
                         onConfirmed={() => doDeletion(deleteIdentifier)}
@@ -61,7 +61,7 @@ export default () => {
                     </Dialog.Confirm>
                     {keys.length === 0 ? (
                         <p css={tw`text-center text-sm`}>
-                            {loading ? 'Loading...' : 'No API keys exist for this account.'}
+                            {loading ? '讀取中...' : '這個帳號沒有任何的 SSH 金鑰。'}
                         </p>
                     ) : (
                         keys.map((key, index) => (

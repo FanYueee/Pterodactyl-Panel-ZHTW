@@ -51,8 +51,8 @@ const CopyOnClick = ({ text, showInNotification = true, children }: CopyOnClickP
                             <div className={'rounded-md py-3 px-4 text-gray-200 bg-neutral-600/95 shadow'}>
                                 <p>
                                     {showInNotification
-                                        ? `Copied "${String(text)}" to clipboard.`
-                                        : 'Copied text to clipboard.'}
+                                        ? `已複製「${String(text)}」至剪貼簿`
+                                        : '已將文字複製到剪貼板。'}
                                 </p>
                             </div>
                         </div>
