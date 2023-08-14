@@ -51,7 +51,7 @@ export default () => {
                                 </div>
                                 <div css={tw`ml-4`}>
                                     <a href={`sftp://${username}.${id}@${ip(sftp.ip)}:${sftp.port}`}>
-                                        <Button.Text variant={Button.Variants.Secondary}>Launch SFTP</Button.Text>
+                                        <Button.Text variant={Button.Variants.Secondary}>啟動 SFTP</Button.Text>
                                     </a>
                                 </div>
                             </div>

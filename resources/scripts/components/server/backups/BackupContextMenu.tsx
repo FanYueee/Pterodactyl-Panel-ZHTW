@@ -125,7 +125,7 @@ export default ({ backup }: Props) => {
                 title={`Unlock "${backup.name}"`}
                 onConfirmed={onLockToggle}
             >
-                這個備份將不再受到保護，因此排成管理或是手動都能直接刪除此備份。
+                這個備份將不再受到保護，因此排程管理或是手動都能直接刪除此備份。
             </Dialog.Confirm>
             <Dialog.Confirm
                 open={modal === 'restore'}

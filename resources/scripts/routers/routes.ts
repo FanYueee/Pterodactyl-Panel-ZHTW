@@ -95,7 +95,7 @@ export default {
         {
             path: '/schedules',
             permission: 'schedule.*',
-            name: '排成管理',
+            name: '排程管理',
             component: ScheduleContainer,
         },
         {

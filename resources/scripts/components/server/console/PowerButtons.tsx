@@ -46,7 +46,7 @@ export default ({ className }: PowerButtonProps) => {
                 confirm={'繼續'}
                 onConfirmed={onButtonClick.bind(this, 'kill-confirmed')}
             >
-                Forcibly stopping a server can lead to data corruption.
+                強制停止伺服器可能導致資料損壞。
             </Dialog.Confirm>
             <Can action={'control.start'}>
                 <Button
