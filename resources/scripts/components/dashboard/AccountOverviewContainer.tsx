@@ -41,10 +41,10 @@ export default () => {
                 <ContentBox title={'更新密碼'} showFlashes={'account:password'}>
                     <UpdatePasswordForm />
                 </ContentBox>
-                <ContentBox css={tw`mt-8 sm:mt-0 sm:ml-8`} title={'Update Email Address'} showFlashes={'account:email'}>
+                <ContentBox css={tw`mt-8 sm:mt-0 sm:ml-8`} title={'更新電子信箱'} showFlashes={'account:email'}>
                     <UpdateEmailAddressForm />
                 </ContentBox>
-                <ContentBox css={tw`md:ml-8 mt-8 md:mt-0`} title={'Two-Step Verification'}>
+                <ContentBox css={tw`md:ml-8 mt-8 md:mt-0`} title={'2FA 雙重驗證'}>
                     <ConfigureTwoFactorForm />
                 </ContentBox>
             </Container>
