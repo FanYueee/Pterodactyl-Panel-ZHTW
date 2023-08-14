@@ -41,20 +41,20 @@ export default () => {
         socket.on('status', (status) => setServerStatus(status));
 
         socket.on('daemon error', (message) => {
-            console.warn('Got error message from daemon socket:', message);
+            console.warn('與主機連線時出現錯誤訊息：', message);
         });
 
         socket.on('token expiring', () => updateToken(uuid, socket));
         socket.on('token expired', () => updateToken(uuid, socket));
         socket.on('jwt error', (error: string) => {
             setConnectionState(false);
-            console.warn('JWT validation error from wings:', error);
+            console.warn('JWT 與主機驗證時出現問題：', error);
 
             if (reconnectErrors.find((v) => error.toLowerCase().indexOf(v) >= 0)) {
                 updateToken(uuid, socket);
             } else {
                 setError(
-                    'There was an error validating the credentials provided for the websocket. Please refresh the page.'
+                    '在驗證 Websocket 時出現問題，請刷新頁面。'
                 );
             }
         });
@@ -112,7 +112,7 @@ export default () => {
                         <>
                             <Spinner size={'small'} />
                             <p css={tw`ml-2 text-sm text-red-100`}>
-                                We&apos;re having some trouble connecting to your server, please wait...
+                                連接伺服器時出現問題，請重新刷新頁面。（如果沒有解決請立即洽詢客服）
                             </p>
                         </>
                     ) : (

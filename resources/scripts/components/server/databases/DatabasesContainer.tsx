@@ -55,8 +55,8 @@ export default () => {
                         ) : (
                             <p css={tw`text-center text-sm text-neutral-300`}>
                                 {databaseLimit > 0
-                                    ? 'It looks like you have no databases.'
-                                    : 'Databases cannot be created for this server.'}
+                                    ? '看來這個伺服器還沒有任何資料庫。'
+                                    : '這個伺服器並沒有資料庫配額。'}
                             </p>
                         )}
                         <Can action={'database.create'}>

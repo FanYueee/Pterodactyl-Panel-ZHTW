@@ -14,30 +14,30 @@ export default () => {
 
     return status === 'installing' || status === 'install_failed' || status === 'reinstall_failed' ? (
         <ScreenBlock
-            title={'Running Installer'}
+            title={'正在安裝'}
             image={ServerInstallSvg}
-            message={'Your server should be ready soon, please try again in a few minutes.'}
+            message={'您的伺服器正在安裝中，等待數分鐘再回來看看。'}
         />
     ) : status === 'suspended' ? (
         <ScreenBlock
-            title={'Server Suspended'}
+            title={'停權'}
             image={ServerErrorSvg}
-            message={'This server is suspended and cannot be accessed.'}
+            message={'您的伺服器已經被停權，無法進行控制。'}
         />
     ) : isNodeUnderMaintenance ? (
         <ScreenBlock
-            title={'Node under Maintenance'}
+            title={'節點維護中'}
             image={ServerErrorSvg}
-            message={'The node of this server is currently under maintenance.'}
+            message={'您的伺服器所在節點目前維護中，無法進行控制。'}
         />
     ) : (
         <ScreenBlock
-            title={isTransferring ? 'Transferring' : 'Restoring from Backup'}
+            title={isTransferring ? '轉移中' : '還原備份中'}
             image={ServerRestoreSvg}
             message={
                 isTransferring
-                    ? 'Your server is being transferred to a new node, please check back later.'
-                    : 'Your server is currently being restored from a backup, please check back in a few minutes.'
+                    ? '您的伺服器正在轉移到其他節點，過一陣子再回來看看吧。'
+                    : '您的伺服器正在還原備份，過一陣子再回來看看吧。'
             }
         />
     );

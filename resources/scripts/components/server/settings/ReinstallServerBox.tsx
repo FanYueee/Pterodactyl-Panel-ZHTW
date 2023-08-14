@@ -21,7 +21,7 @@ export default () => {
                 addFlash({
                     key: 'settings',
                     type: 'success',
-                    message: 'Your server has begun the reinstallation process.',
+                    message: '您的伺服器已開始進行重新安裝。',
                 });
             })
             .catch((error) => {
@@ -37,7 +37,7 @@ export default () => {
     }, []);
 
     return (
-        <TitledGreyBox title={'Reinstall Server'} css={tw`relative`}>
+        <TitledGreyBox title={'重新安裝伺服器'} css={tw`relative`}>
             <Dialog.Confirm
                 open={modalVisible}
                 title={'Confirm server reinstallation'}
@@ -45,20 +45,17 @@ export default () => {
                 onClose={() => setModalVisible(false)}
                 onConfirmed={reinstall}
             >
-                Your server will be stopped and some files may be deleted or modified during this process, are you sure
-                you wish to continue?
+                您伺服器將有部分檔案被刪除，例如伺服器核心與其設定檔，如果有重要資料請記得先備份，重新安裝後無法還原。
             </Dialog.Confirm>
             <p css={tw`text-sm`}>
-                Reinstalling your server will stop it, and then re-run the installation script that initially set it
-                up.&nbsp;
+                重新安裝時您的伺服器會關閉，並執行初始創建的執行腳本。&nbsp;
                 <strong css={tw`font-medium`}>
-                    Some files may be deleted or modified during this process, please back up your data before
-                    continuing.
+                    您伺服器將有部分檔案被刪除，例如伺服器核心與其設定檔，如果有重要資料請記得先備份，重新安裝後無法還原。
                 </strong>
             </p>
             <div css={tw`mt-6 text-right`}>
                 <Button.Danger variant={Button.Variants.Secondary} onClick={() => setModalVisible(true)}>
-                    Reinstall Server
+                    重新安裝伺服器
                 </Button.Danger>
             </div>
         </TitledGreyBox>

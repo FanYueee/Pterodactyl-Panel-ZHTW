@@ -96,9 +96,9 @@ const EditSubuserModal = ({ subuser }: Props) => {
             }
             validationSchema={object().shape({
                 email: string()
-                    .max(191, 'Email addresses must not exceed 191 characters.')
-                    .email('A valid email address must be provided.')
-                    .required('A valid email address must be provided.'),
+                    .max(191, 'E-Mail 長度不得超過 191 字符。')
+                    .email('您必須提供有效的 E-Mail。')
+                    .required('您必須提供有效的 E-Mail。'),
                 permissions: array().of(string()),
             })}
         >
@@ -106,12 +106,12 @@ const EditSubuserModal = ({ subuser }: Props) => {
                 <div css={tw`flex justify-between`}>
                     <h2 css={tw`text-2xl`} ref={ref}>
                         {subuser
-                            ? `${canEditUser ? 'Modify' : 'View'} permissions for ${subuser.email}`
-                            : 'Create new subuser'}
+                            ? `${canEditUser ? '修改' : '查看'} ${subuser.email} 的權限`
+                            : '創建新共同用戶'}
                     </h2>
                     <div>
                         <Button type={'submit'} css={tw`w-full sm:w-auto`}>
-                            {subuser ? 'Save' : 'Invite User'}
+                            {subuser ? '儲存' : '邀請共同用戶'}
                         </Button>
                     </div>
                 </div>
@@ -119,8 +119,7 @@ const EditSubuserModal = ({ subuser }: Props) => {
                 {!isRootAdmin && loggedInPermissions[0] !== '*' && (
                     <div css={tw`mt-4 pl-4 py-2 border-l-4 border-cyan-400`}>
                         <p css={tw`text-sm text-neutral-300`}>
-                            Only permissions which your account is currently assigned may be selected when creating or
-                            modifying other users.
+                            創建或修改共同用戶的權限時，您只能更動您所擁有的權限。
                         </p>
                     </div>
                 )}
@@ -130,7 +129,7 @@ const EditSubuserModal = ({ subuser }: Props) => {
                             name={'email'}
                             label={'User Email'}
                             description={
-                                'Enter the email address of the user you wish to invite as a subuser for this server.'
+                                '輸入您想邀請共同管理此伺服器的用戶 E-Mail。'
                             }
                         />
                     </div>
@@ -160,7 +159,7 @@ const EditSubuserModal = ({ subuser }: Props) => {
                 <Can action={subuser ? 'user.update' : 'user.create'}>
                     <div css={tw`pb-6 flex justify-end`}>
                         <Button type={'submit'} css={tw`w-full sm:w-auto`}>
-                            {subuser ? 'Save' : 'Invite User'}
+                            {subuser ? '保存' : '邀請用戶'}
                         </Button>
                     </div>
                 </Can>

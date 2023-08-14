@@ -23,20 +23,20 @@ export default () => {
     const sftp = ServerContext.useStoreState((state) => state.server.data!.sftpDetails, isEqual);
 
     return (
-        <ServerContentBlock title={'Settings'}>
+        <ServerContentBlock title={'其他設置'}>
             <FlashMessageRender byKey={'settings'} css={tw`mb-4`} />
             <div css={tw`md:flex`}>
                 <div css={tw`w-full md:flex-1 md:mr-10`}>
                     <Can action={'file.sftp'}>
-                        <TitledGreyBox title={'SFTP Details'} css={tw`mb-6 md:mb-10`}>
+                        <TitledGreyBox title={'SFTP 連線資訊'} css={tw`mb-6 md:mb-10`}>
                             <div>
-                                <Label>Server Address</Label>
+                                <Label>SFTP 連線位置</Label>
                                 <CopyOnClick text={`sftp://${ip(sftp.ip)}:${sftp.port}`}>
                                     <Input type={'text'} value={`sftp://${ip(sftp.ip)}:${sftp.port}`} readOnly />
                                 </CopyOnClick>
                             </div>
                             <div css={tw`mt-6`}>
-                                <Label>Username</Label>
+                                <Label>帳號名稱</Label>
                                 <CopyOnClick text={`${username}.${id}`}>
                                     <Input type={'text'} value={`${username}.${id}`} readOnly />
                                 </CopyOnClick>
@@ -45,7 +45,7 @@ export default () => {
                                 <div css={tw`flex-1`}>
                                     <div css={tw`border-l-4 border-cyan-500 p-3`}>
                                         <p css={tw`text-xs text-neutral-200`}>
-                                            Your SFTP password is the same as the password you use to access this panel.
+                                            您的 SFTP 連線密碼就是您的伺服器控制面板密碼。
                                         </p>
                                     </div>
                                 </div>
@@ -57,14 +57,14 @@ export default () => {
                             </div>
                         </TitledGreyBox>
                     </Can>
-                    <TitledGreyBox title={'Debug Information'} css={tw`mb-6 md:mb-10`}>
+                    <TitledGreyBox title={'維修資訊'} css={tw`mb-6 md:mb-10`}>
                         <div css={tw`flex items-center justify-between text-sm`}>
-                            <p>Node</p>
+                            <p>節點</p>
                             <code css={tw`font-mono bg-neutral-900 rounded py-1 px-2`}>{node}</code>
                         </div>
                         <CopyOnClick text={uuid}>
                             <div css={tw`flex items-center justify-between mt-2 text-sm`}>
-                                <p>Server ID</p>
+                                <p>伺服器唯一識別碼</p>
                                 <code css={tw`font-mono bg-neutral-900 rounded py-1 px-2`}>{uuid}</code>
                             </div>
                         </CopyOnClick>

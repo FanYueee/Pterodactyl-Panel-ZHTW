@@ -80,17 +80,17 @@ const StartupContainer = () => {
         !error || (error && isValidating) ? (
             <Spinner centered size={Spinner.Size.LARGE} />
         ) : (
-            <ServerError title={'Oops!'} message={httpErrorToHuman(error)} onRetry={() => mutate()} />
+            <ServerError title={'哎呀！'} message={httpErrorToHuman(error)} onRetry={() => mutate()} />
         )
     ) : (
-        <ServerContentBlock title={'Startup Settings'} showFlashKey={'startup:image'}>
+        <ServerContentBlock title={'啟動設定'} showFlashKey={'startup:image'}>
             <div css={tw`md:flex`}>
-                <TitledGreyBox title={'Startup Command'} css={tw`flex-1`}>
+                <TitledGreyBox title={'啟動參數'} css={tw`flex-1`}>
                     <div css={tw`px-1 py-2`}>
                         <p css={tw`font-mono bg-neutral-900 rounded py-2 px-4`}>{data.invocation}</p>
                     </div>
                 </TitledGreyBox>
-                <TitledGreyBox title={'Docker Image'} css={tw`flex-1 lg:flex-none lg:w-1/3 mt-8 md:mt-0 md:ml-10`}>
+                <TitledGreyBox title={'啟動版本'} css={tw`flex-1 lg:flex-none lg:w-1/3 mt-8 md:mt-0 md:ml-10`}>
                     {Object.keys(data.dockerImages).length > 1 && !isCustomImage ? (
                         <>
                             <InputSpinner visible={loading}>
@@ -107,8 +107,7 @@ const StartupContainer = () => {
                                 </Select>
                             </InputSpinner>
                             <p css={tw`text-xs text-neutral-300 mt-2`}>
-                                This is an advanced feature allowing you to select a Docker image to use when running
-                                this server instance.
+                                這可以更改您的啟動版本，如果無法使用請更改其他的試試看。
                             </p>
                         </>
                     ) : (
@@ -116,8 +115,7 @@ const StartupContainer = () => {
                             <Input disabled readOnly value={variables.dockerImage} />
                             {isCustomImage && (
                                 <p css={tw`text-xs text-neutral-300 mt-2`}>
-                                    This {"server's"} Docker image has been manually set by an administrator and cannot
-                                    be changed through this UI.
+                                    這個伺服器的啟動版本以經由技術人員設置，您無法更改它。
                                 </p>
                             )}
                         </>

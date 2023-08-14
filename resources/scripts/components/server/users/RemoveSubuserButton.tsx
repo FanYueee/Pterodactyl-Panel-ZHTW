@@ -36,19 +36,18 @@ export default ({ subuser }: { subuser: Subuser }) => {
     return (
         <>
             <ConfirmationModal
-                title={'Delete this subuser?'}
-                buttonText={'Yes, remove subuser'}
+                title={'刪除此共同用戶？'}
+                buttonText={'我確定刪除此共同用戶'}
                 visible={showConfirmation}
                 showSpinnerOverlay={loading}
                 onConfirmed={() => doDeletion()}
                 onModalDismissed={() => setShowConfirmation(false)}
             >
-                Are you sure you wish to remove this subuser? They will have all access to this server revoked
-                immediately.
+                您確定要刪除此共同用戶嗎？他將失去此伺服器的管理控制權。
             </ConfirmationModal>
             <button
                 type={'button'}
-                aria-label={'Delete subuser'}
+                aria-label={'刪除共同用戶'}
                 css={tw`block text-sm p-2 text-neutral-500 hover:text-red-600 transition-colors duration-150`}
                 onClick={() => setShowConfirmation(true)}
             >

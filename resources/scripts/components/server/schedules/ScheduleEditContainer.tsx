@@ -36,7 +36,7 @@ const ActivePill = ({ active }: { active: boolean }) => (
             active ? tw`bg-green-600 text-green-100` : tw`bg-red-600 text-red-100`,
         ]}
     >
-        {active ? 'Active' : 'Inactive'}
+        {active ? '已啟動' : '未啟動'}
     </span>
 );
 
@@ -97,7 +97,7 @@ export default () => {
                                             css={tw`flex items-center rounded-full px-2 py-px text-xs ml-4 uppercase bg-neutral-600 text-white`}
                                         >
                                             <Spinner css={tw`w-3! h-3! mr-2`} />
-                                            Processing
+                                            執行中
                                         </span>
                                     ) : (
                                         <ActivePill active={schedule.isActive} />
@@ -123,7 +123,7 @@ export default () => {
                             <div css={tw`flex sm:block mt-3 sm:mt-0`}>
                                 <Can action={'schedule.update'}>
                                     <Button.Text className={'flex-1 mr-4'} onClick={toggleEditModal}>
-                                        Edit
+                                        編輯
                                     </Button.Text>
                                     <NewTaskButton schedule={schedule} />
                                 </Can>
