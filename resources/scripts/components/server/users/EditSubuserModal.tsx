@@ -127,7 +127,7 @@ const EditSubuserModal = ({ subuser }: Props) => {
                     <div css={tw`mt-6`}>
                         <Field
                             name={'email'}
-                            label={'User Email'}
+                            label={'共同用戶 Email'}
                             description={
                                 '輸入您想邀請共同管理此伺服器的用戶 E-Mail。'
                             }
