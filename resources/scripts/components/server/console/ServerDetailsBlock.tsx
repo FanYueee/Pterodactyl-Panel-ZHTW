@@ -95,7 +95,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
             </StatBlock>
             <StatBlock
                 icon={faClock}
-                title={'上線時間'}
+                title={'運行時間'}
                 color={getBackgroundColor(status === 'running' ? 0 : status !== 'offline' ? 9 : 10, 10)}
             >
                 {status === null ? (
